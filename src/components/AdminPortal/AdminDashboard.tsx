@@ -169,7 +169,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
           }`}
         >
           <Key className="w-4 h-4" />
-          <span>Security & PIN</span>
+          <span>Security & Credentials</span>
         </button>
       </div>
 

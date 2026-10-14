@@ -1,5 +1,4 @@
 {
-  "adminPin": "admin123",
   "activeChallenge": {
     "id": "chal-10day-oct",
     "name": "10-Day Safe Rollover Challenge ($20 -> $500)",
@@ -320,12 +319,12 @@
         }
       ],
       "reactions": {
-        "fire": 114,
+        "fire": 119,
         "target": 98,
         "money": 102,
         "cold": 1
       },
-      "viewsCount": 1045,
+      "viewsCount": 1058,
       "copiesCount": 685,
       "followedCount": 520,
       "createdAt": "2026-10-14T06:30:00Z",
@@ -333,6 +332,283 @@
     }
   ],
   "activities": [
+    {
+      "id": "act-1791975415382-s27fe",
+      "timestamp": "2026-10-14T10:56:55.382Z",
+      "actorType": "user",
+      "actorIdentifier": "Punter-8394 (Madrid)",
+      "actionType": "tip_viewed",
+      "category": "engagement",
+      "details": "Viewed Day 4 Rollover Slip details and match predictions",
+      "metadata": {
+        "tipId": "tip-day-4",
+        "dayNumber": 4
+      },
+      "device": "Mobile / Chrome"
+    },
+    {
+      "id": "act-1791975239813-bsilw",
+      "timestamp": "2026-10-14T10:53:59.813Z",
+      "actorType": "admin",
+      "actorIdentifier": "Admin (Vip)",
+      "actionType": "admin_login",
+      "category": "management",
+      "details": "Administrator authenticated successfully",
+      "device": "curl/7.88.1"
+    },
+    {
+      "id": "act-1791975235600-6ew69",
+      "timestamp": "2026-10-14T10:53:55.600Z",
+      "actorType": "admin",
+      "actorIdentifier": "Admin (Vip)",
+      "actionType": "admin_login",
+      "category": "management",
+      "details": "Administrator authenticated successfully",
+      "device": "curl/7.88.1"
+    },
+    {
+      "id": "act-1791975002532-vz979",
+      "timestamp": "2026-10-14T10:50:02.532Z",
+      "actorType": "user",
+      "actorIdentifier": "Punter-8394 (Madrid)",
+      "actionType": "tip_viewed",
+      "category": "engagement",
+      "details": "Viewed Day 4 Rollover Slip details and match predictions",
+      "metadata": {
+        "tipId": "tip-day-4",
+        "dayNumber": 4
+      },
+      "device": "Mobile / Chrome"
+    },
+    {
+      "id": "act-1791973505322-nnoyy",
+      "timestamp": "2026-10-14T10:25:05.322Z",
+      "actorType": "user",
+      "actorIdentifier": "Punter-2630 (Berlin)",
+      "actionType": "tip_viewed",
+      "category": "engagement",
+      "details": "Viewed Day 4 Rollover Slip details and match predictions",
+      "metadata": {
+        "tipId": "tip-day-4",
+        "dayNumber": 4
+      },
+      "device": "Mobile / Chrome"
+    },
+    {
+      "id": "act-1791972446467-fm4wd",
+      "timestamp": "2026-10-14T10:07:26.467Z",
+      "actorType": "user",
+      "actorIdentifier": "Vincent Kip (vinytechkip@gmail.com)",
+      "actionType": "tip_viewed",
+      "category": "engagement",
+      "details": "Viewed Day 4 Rollover Slip details and match predictions",
+      "metadata": {
+        "tipId": "tip-day-4",
+        "dayNumber": 4
+      },
+      "device": "Mobile / Chrome"
+    },
+    {
+      "id": "act-1791972206946-gg3zo",
+      "timestamp": "2026-10-14T10:03:26.946Z",
+      "actorType": "user",
+      "actorIdentifier": "Vincent Kip (vinytechkip@gmail.com)",
+      "actionType": "tip_viewed",
+      "category": "engagement",
+      "details": "Viewed Day 4 Rollover Slip details and match predictions",
+      "metadata": {
+        "tipId": "tip-day-4",
+        "dayNumber": 4
+      },
+      "device": "Mobile / Chrome"
+    },
+    {
+      "id": "act-1791970788819-uzl3g",
+      "timestamp": "2026-10-14T09:39:48.819Z",
+      "actorType": "user",
+      "actorIdentifier": "Vincent Kip (vinytechkip@gmail.com)",
+      "actionType": "tip_viewed",
+      "category": "engagement",
+      "details": "Viewed Day 4 Rollover Slip details and match predictions",
+      "metadata": {
+        "tipId": "tip-day-4",
+        "dayNumber": 4
+      },
+      "device": "Mobile / Chrome"
+    },
+    {
+      "id": "act-1791969027097-gctnr",
+      "timestamp": "2026-10-14T09:10:27.097Z",
+      "actorType": "user",
+      "actorIdentifier": "Vincent Kip (vinytechkip@gmail.com)",
+      "actionType": "tip_viewed",
+      "category": "engagement",
+      "details": "Viewed Day 4 Rollover Slip details and match predictions",
+      "metadata": {
+        "tipId": "tip-day-4",
+        "dayNumber": 4
+      },
+      "device": "Mobile / Chrome"
+    },
+    {
+      "id": "act-1791967951053-fwqnl",
+      "timestamp": "2026-10-14T08:52:31.053Z",
+      "actorType": "user",
+      "actorIdentifier": "Vincent Kip (vinytechkip@gmail.com)",
+      "actionType": "tip_viewed",
+      "category": "engagement",
+      "details": "Viewed Day 4 Rollover Slip details and match predictions",
+      "metadata": {
+        "tipId": "tip-day-4",
+        "dayNumber": 4
+      },
+      "device": "Mobile / Chrome"
+    },
+    {
+      "id": "act-1791967950474-c69qx",
+      "timestamp": "2026-10-14T08:52:30.474Z",
+      "actorType": "user",
+      "actorIdentifier": "Vincent Kip (vinytechkip@gmail.com)",
+      "actionType": "tip_viewed",
+      "category": "engagement",
+      "details": "Viewed Day 4 Rollover Slip details and match predictions",
+      "metadata": {
+        "tipId": "tip-day-4",
+        "dayNumber": 4
+      },
+      "device": "Mobile / Chrome"
+    },
+    {
+      "id": "act-1791967948772-6ev1s",
+      "timestamp": "2026-10-14T08:52:28.772Z",
+      "actorType": "user",
+      "actorIdentifier": "Vincent Kip (vinytechkip@gmail.com)",
+      "actionType": "tip_viewed",
+      "category": "engagement",
+      "details": "Viewed Day 4 Rollover Slip details and match predictions",
+      "metadata": {
+        "tipId": "tip-day-4",
+        "dayNumber": 4
+      },
+      "device": "Mobile / Chrome"
+    },
+    {
+      "id": "act-1791967948465-1t6he",
+      "timestamp": "2026-10-14T08:52:28.465Z",
+      "actorType": "user",
+      "actorIdentifier": "Vincent Kip (vinytechkip@gmail.com)",
+      "actionType": "tip_viewed",
+      "category": "engagement",
+      "details": "Viewed Day 4 Rollover Slip details and match predictions",
+      "metadata": {
+        "tipId": "tip-day-4",
+        "dayNumber": 4
+      },
+      "device": "Mobile / Chrome"
+    },
+    {
+      "id": "act-1791967945325-qqnve",
+      "timestamp": "2026-10-14T08:52:25.325Z",
+      "actorType": "user",
+      "actorIdentifier": "Vincent Kip (vinytechkip@gmail.com)",
+      "actionType": "tip_viewed",
+      "category": "engagement",
+      "details": "Viewed Day 4 Rollover Slip details and match predictions",
+      "metadata": {
+        "tipId": "tip-day-4",
+        "dayNumber": 4
+      },
+      "device": "Mobile / Chrome"
+    },
+    {
+      "id": "act-1791967938969-07ge8",
+      "timestamp": "2026-10-14T08:52:18.969Z",
+      "actorType": "user",
+      "actorIdentifier": "Vincent Kip (vinytechkip@gmail.com)",
+      "actionType": "reaction_added",
+      "category": "community",
+      "details": "Reacted 🔥 Fire to Day 4 Slip",
+      "metadata": {
+        "tipId": "tip-day-4",
+        "reaction": "fire",
+        "dayNumber": 4
+      },
+      "device": "Mobile / Chrome"
+    },
+    {
+      "id": "act-1791967937994-ywh1j",
+      "timestamp": "2026-10-14T08:52:17.994Z",
+      "actorType": "user",
+      "actorIdentifier": "Vincent Kip (vinytechkip@gmail.com)",
+      "actionType": "reaction_added",
+      "category": "community",
+      "details": "Reacted 🔥 Fire to Day 4 Slip",
+      "metadata": {
+        "tipId": "tip-day-4",
+        "reaction": "fire",
+        "dayNumber": 4
+      },
+      "device": "Mobile / Chrome"
+    },
+    {
+      "id": "act-1791967937311-boxj7",
+      "timestamp": "2026-10-14T08:52:17.311Z",
+      "actorType": "user",
+      "actorIdentifier": "Vincent Kip (vinytechkip@gmail.com)",
+      "actionType": "reaction_added",
+      "category": "community",
+      "details": "Reacted 🔥 Fire to Day 4 Slip",
+      "metadata": {
+        "tipId": "tip-day-4",
+        "reaction": "fire",
+        "dayNumber": 4
+      },
+      "device": "Mobile / Chrome"
+    },
+    {
+      "id": "act-1791967937015-68hy0",
+      "timestamp": "2026-10-14T08:52:17.015Z",
+      "actorType": "user",
+      "actorIdentifier": "Vincent Kip (vinytechkip@gmail.com)",
+      "actionType": "reaction_added",
+      "category": "community",
+      "details": "Reacted 🔥 Fire to Day 4 Slip",
+      "metadata": {
+        "tipId": "tip-day-4",
+        "reaction": "fire",
+        "dayNumber": 4
+      },
+      "device": "Mobile / Chrome"
+    },
+    {
+      "id": "act-1791967937012-vgs3f",
+      "timestamp": "2026-10-14T08:52:17.012Z",
+      "actorType": "user",
+      "actorIdentifier": "Vincent Kip (vinytechkip@gmail.com)",
+      "actionType": "reaction_added",
+      "category": "community",
+      "details": "Reacted 🔥 Fire to Day 4 Slip",
+      "metadata": {
+        "tipId": "tip-day-4",
+        "reaction": "fire",
+        "dayNumber": 4
+      },
+      "device": "Mobile / Chrome"
+    },
+    {
+      "id": "act-1791967922904-qgevn",
+      "timestamp": "2026-10-14T08:52:02.904Z",
+      "actorType": "user",
+      "actorIdentifier": "Vincent Kip (vinytechkip@gmail.com)",
+      "actionType": "tip_viewed",
+      "category": "engagement",
+      "details": "Viewed Day 4 Rollover Slip details and match predictions",
+      "metadata": {
+        "tipId": "tip-day-4",
+        "dayNumber": 4
+      },
+      "device": "Mobile / Chrome"
+    },
     {
       "id": "act-1791966384647-53tvc",
       "timestamp": "2026-10-14T08:26:24.647Z",
@@ -594,71 +870,7 @@
       "createdAt": "2026-10-13T22:15:00Z"
     }
   ],
-  "members": [
-    {
-      "id": "usr-1",
-      "name": "Vincent Kip",
-      "email": "vinytechkip@gmail.com",
-      "phone": "+254 712 345678",
-      "role": "verified",
-      "status": "active",
-      "joinedAt": "2026-10-01T10:00:00Z",
-      "lastActiveAt": "2026-10-14T08:26:24.646Z",
-      "codesCopiedCount": 28,
-      "tipsFollowedCount": 22,
-      "password": "password123"
-    },
-    {
-      "id": "usr-2",
-      "name": "Alex Thompson",
-      "email": "alex.punter@gmail.com",
-      "phone": "+44 7911 123456",
-      "role": "verified",
-      "status": "active",
-      "joinedAt": "2026-10-04T14:20:00Z",
-      "lastActiveAt": "2026-10-14T08:03:37.310Z",
-      "codesCopiedCount": 19,
-      "tipsFollowedCount": 15,
-      "password": "password123"
-    },
-    {
-      "id": "usr-3",
-      "name": "Kelvin Mwangi",
-      "email": "kelvin.tips@yahoo.com",
-      "phone": "+254 722 987654",
-      "role": "veteran",
-      "status": "active",
-      "joinedAt": "2026-10-08T09:15:00Z",
-      "lastActiveAt": "2026-10-14T07:46:37.310Z",
-      "codesCopiedCount": 14,
-      "tipsFollowedCount": 12,
-      "password": "password123"
-    },
-    {
-      "id": "usr-4",
-      "name": "Samuel Osei",
-      "email": "samuel.o@gmail.com",
-      "phone": "+233 24 555 1234",
-      "role": "member",
-      "status": "active",
-      "joinedAt": "2026-10-10T11:00:00Z",
-      "lastActiveAt": "2026-10-14T06:56:37.310Z",
-      "codesCopiedCount": 8,
-      "tipsFollowedCount": 6,
-      "password": "password123"
-    },
-    {
-      "id": "usr-5",
-      "name": "David Becker",
-      "email": "david.bets@outlook.de",
-      "phone": "+49 170 5554321",
-      "role": "member",
-      "status": "active",
-      "joinedAt": "2026-10-12T16:45:00Z",
-      "lastActiveAt": "2026-10-14T06:01:37.310Z",
-      "codesCopiedCount": 5,
-      "tipsFollowedCount": 4,
-      "password": "password123"
-    }
-  ]
+  "members": [],
+  "adminUsername": "Vip",
+  "adminPassword": "1"
 }

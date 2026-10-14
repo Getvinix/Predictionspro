@@ -75,29 +75,6 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
     }
   };
 
-  const handleQuickDemo = async (demoEmail: string, demoName: string) => {
-    setLoading(true);
-    setError('');
-    try {
-      const res = await loginMember({ email: demoEmail });
-      if (res.success && res.member) {
-        onSuccess(res.member);
-        onClose();
-      } else {
-        // Register if not found
-        const reg = await registerMember({ name: demoName, email: demoEmail });
-        if (reg.success && reg.member) {
-          onSuccess(reg.member);
-          onClose();
-        }
-      }
-    } catch {
-      setError('Failed to sign in demo account');
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-slate-950/85 backdrop-blur-md animate-fade-in overflow-y-auto">
       <div className="bg-slate-900 border border-slate-750 rounded-3xl max-w-md w-full p-6 sm:p-7 shadow-2xl relative text-slate-100 my-8">
@@ -264,23 +241,11 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
           </button>
         </form>
 
-        {/* 1-Click Quick Demo Sign In */}
+        {/* Privacy Note */}
         <div className="mt-5 pt-4 border-t border-slate-800 text-center">
-          <p className="text-[11px] text-slate-400 mb-2 font-medium">Quick 1-Click Demo Profiles:</p>
-          <div className="flex gap-2 justify-center">
-            <button
-              onClick={() => handleQuickDemo('vinytechkip@gmail.com', 'Vincent Kip')}
-              className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-750 border border-slate-700 text-xs text-emerald-400 font-semibold transition"
-            >
-              Sign in as Vincent (Verified)
-            </button>
-            <button
-              onClick={() => handleQuickDemo('alex.punter@gmail.com', 'Alex Thompson')}
-              className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-750 border border-slate-700 text-xs text-slate-300 font-semibold transition"
-            >
-              Sign in as Alex
-            </button>
-          </div>
+          <p className="text-[11px] text-slate-500 font-medium">
+            🔒 Safe & Secure. We respect your privacy and will never share your details.
+          </p>
         </div>
       </div>
     </div>

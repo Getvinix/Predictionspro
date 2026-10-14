@@ -102,6 +102,19 @@ export async function fetchTipsAndChallenge(): Promise<{
   return res.json();
 }
 
+export function getAdminToken(): string {
+  if (typeof window === 'undefined') return '';
+  return localStorage.getItem('rollover_admin_token') || '';
+}
+
+export function getAdminHeaders(): Record<string, string> {
+  const token = getAdminToken();
+  return {
+    'Content-Type': 'application/json',
+    'x-admin-token': token,
+  };
+}
+
 export async function fetchActivities(filters?: {
   category?: string;
   actorType?: string;
@@ -114,7 +127,9 @@ export async function fetchActivities(filters?: {
   if (filters?.search) params.append('search', filters.search);
   if (filters?.limit) params.append('limit', filters.limit.toString());
 
-  const res = await fetch(`/api/activities?${params.toString()}`);
+  const res = await fetch(`/api/activities?${params.toString()}`, {
+    headers: getAdminHeaders(),
+  });
   if (!res.ok) throw new Error('Failed to fetch activities');
   return res.json();
 }
@@ -262,22 +277,37 @@ export async function deleteAnnouncement(id: string): Promise<any> {
   return fetch(`/api/announcements/${id}`, { method: 'DELETE' });
 }
 
-export async function verifyAdminPin(pin: string): Promise<boolean> {
+export async function verifyAdminCredentials(credentials: {
+  username: string;
+  password: string;
+}): Promise<boolean> {
   const res = await fetch('/api/admin/verify', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ pin }),
+    body: JSON.stringify(credentials),
   });
   return res.ok;
 }
 
-export async function changeAdminPin(oldPin: string, newPin: string): Promise<any> {
-  const res = await fetch('/api/admin/change-pin', {
+export async function verifyAdminPin(pin: string): Promise<boolean> {
+  return verifyAdminCredentials({ username: 'Vip', password: pin });
+}
+
+export async function changeAdminCredentials(
+  currentPassword: string,
+  newUsername?: string,
+  newPassword?: string
+): Promise<{ success: boolean; message?: string }> {
+  const res = await fetch('/api/admin/change-credentials', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ oldPin, newPin }),
+    headers: getAdminHeaders(),
+    body: JSON.stringify({ currentPassword, newUsername, newPassword }),
   });
   return res.json();
+}
+
+export async function changeAdminPin(oldPin: string, newPin: string): Promise<any> {
+  return changeAdminCredentials(oldPin, undefined, newPin);
 }
 
 export async function createTip(tipData: Partial<RolloverTip>): Promise<RolloverTip> {
@@ -319,7 +349,10 @@ export async function deleteTip(id: string): Promise<any> {
 }
 
 export async function clearAllActivities(): Promise<any> {
-  const res = await fetch('/api/activities', { method: 'DELETE' });
+  const res = await fetch('/api/activities', {
+    method: 'DELETE',
+    headers: getAdminHeaders(),
+  });
   return res.json();
 }
 
@@ -382,7 +415,9 @@ export async function loginMember(data: {
 // ----------------- ADMIN MEMBERS DIRECTORY API ----------------- //
 
 export async function fetchAdminMembers(): Promise<UserMember[]> {
-  const res = await fetch('/api/admin/members');
+  const res = await fetch('/api/admin/members', {
+    headers: getAdminHeaders(),
+  });
   if (!res.ok) throw new Error('Failed to fetch members');
   const data = await res.json();
   return data.members || [];
@@ -394,7 +429,7 @@ export async function updateAdminMember(
 ): Promise<UserMember> {
   const res = await fetch(`/api/admin/members/${id}`, {
     method: 'PATCH',
-    headers: { 'Content-Type': 'application/json' },
+    headers: getAdminHeaders(),
     body: JSON.stringify(updates),
   });
   const data = await res.json();
@@ -402,6 +437,9 @@ export async function updateAdminMember(
 }
 
 export async function deleteAdminMember(id: string): Promise<any> {
-  const res = await fetch(`/api/admin/members/${id}`, { method: 'DELETE' });
+  const res = await fetch(`/api/admin/members/${id}`, {
+    method: 'DELETE',
+    headers: getAdminHeaders(),
+  });
   return res.json();
 }

@@ -136,31 +136,21 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* WhatsApp Contact Tab */}
             <WhatsAppNavTab onOpenModal={onOpenWhatsAppModal} />
 
-            {/* Admin Hub Button */}
-            <button
-              onClick={() => {
-                if (isAdmin) {
-                  setCurrentTab('admin');
-                } else {
-                  onOpenAdminLogin();
-                }
-              }}
-              className={`ml-1 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition flex items-center gap-1.5 ${
-                currentTab === 'admin'
-                  ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
-                  : isAdmin
-                  ? 'bg-indigo-950/80 text-indigo-300 border border-indigo-700/50 hover:bg-indigo-900/60'
-                  : 'bg-slate-800 text-slate-300 hover:text-white border border-slate-700 hover:bg-slate-750'
-              }`}
-            >
-              <Shield className="w-4 h-4 text-indigo-400" />
-              <span className="hidden xs:inline">Admin Hub</span>
-              {isAdmin ? (
+            {/* Admin Hub - strictly visible only to authenticated administrator */}
+            {isAdmin && (
+              <button
+                onClick={() => setCurrentTab('admin')}
+                className={`ml-1 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition flex items-center gap-1.5 ${
+                  currentTab === 'admin'
+                    ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
+                    : 'bg-indigo-950/80 text-indigo-300 border border-indigo-700/50 hover:bg-indigo-900/60'
+                }`}
+              >
+                <Shield className="w-4 h-4 text-indigo-400" />
+                <span className="hidden xs:inline">Admin Hub</span>
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse ml-0.5" />
-              ) : (
-                <Lock className="w-3 h-3 text-slate-400 ml-0.5" />
-              )}
-            </button>
+              </button>
+            )}
           </nav>
 
           {/* Right Action: Member Auth Status & Settings */}

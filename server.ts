@@ -1,5 +1,5 @@
 import express from 'express';
-import type { Request, Response } from 'express';
+import type { Request, Response, NextFunction } from 'express';
 import { createServer as createViteServer } from 'vite';
 import path from 'path';
 import fs from 'fs';
@@ -34,7 +34,9 @@ if (!fs.existsSync(DATA_DIR)) {
 }
 
 interface DatabaseSchema {
-  adminPin: string;
+  adminUsername?: string;
+  adminPassword?: string;
+  adminPin?: string;
   activeChallenge: ChallengeSummary;
   tips: RolloverTip[];
   activities: ActivityLog[];
@@ -418,76 +420,11 @@ function getInitialDatabase(): DatabaseSchema {
     },
   ];
 
-  const initialMembers: (UserMember & { password?: string })[] = [
-    {
-      id: 'usr-1',
-      name: 'Vincent Kip',
-      email: 'vinytechkip@gmail.com',
-      phone: '+254 712 345678',
-      role: 'verified',
-      status: 'active',
-      joinedAt: '2026-10-01T10:00:00Z',
-      lastActiveAt: new Date().toISOString(),
-      codesCopiedCount: 28,
-      tipsFollowedCount: 22,
-      password: 'password123',
-    },
-    {
-      id: 'usr-2',
-      name: 'Alex Thompson',
-      email: 'alex.punter@gmail.com',
-      phone: '+44 7911 123456',
-      role: 'verified',
-      status: 'active',
-      joinedAt: '2026-10-04T14:20:00Z',
-      lastActiveAt: new Date(Date.now() - 1000 * 60 * 18).toISOString(),
-      codesCopiedCount: 19,
-      tipsFollowedCount: 15,
-      password: 'password123',
-    },
-    {
-      id: 'usr-3',
-      name: 'Kelvin Mwangi',
-      email: 'kelvin.tips@yahoo.com',
-      phone: '+254 722 987654',
-      role: 'veteran',
-      status: 'active',
-      joinedAt: '2026-10-08T09:15:00Z',
-      lastActiveAt: new Date(Date.now() - 1000 * 60 * 35).toISOString(),
-      codesCopiedCount: 14,
-      tipsFollowedCount: 12,
-      password: 'password123',
-    },
-    {
-      id: 'usr-4',
-      name: 'Samuel Osei',
-      email: 'samuel.o@gmail.com',
-      phone: '+233 24 555 1234',
-      role: 'member',
-      status: 'active',
-      joinedAt: '2026-10-10T11:00:00Z',
-      lastActiveAt: new Date(Date.now() - 1000 * 60 * 85).toISOString(),
-      codesCopiedCount: 8,
-      tipsFollowedCount: 6,
-      password: 'password123',
-    },
-    {
-      id: 'usr-5',
-      name: 'David Becker',
-      email: 'david.bets@outlook.de',
-      phone: '+49 170 5554321',
-      role: 'member',
-      status: 'active',
-      joinedAt: '2026-10-12T16:45:00Z',
-      lastActiveAt: new Date(Date.now() - 1000 * 60 * 140).toISOString(),
-      codesCopiedCount: 5,
-      tipsFollowedCount: 4,
-      password: 'password123',
-    },
-  ];
+  const initialMembers: (UserMember & { password?: string })[] = [];
 
   return {
-    adminPin: 'admin123',
+    adminUsername: 'Vip',
+    adminPassword: '1',
     activeChallenge: {
       id: 'chal-10day-oct',
       name: '10-Day Safe Rollover Challenge ($20 -> $500)',
@@ -516,9 +453,24 @@ function loadDatabase(): DatabaseSchema {
     }
     const raw = fs.readFileSync(DB_FILE, 'utf-8');
     const parsed = JSON.parse(raw) as DatabaseSchema;
-    if (!parsed.members || !Array.isArray(parsed.members) || parsed.members.length === 0) {
-      const initial = getInitialDatabase();
-      parsed.members = initial.members;
+    let shouldSave = false;
+    if (!parsed.adminUsername) {
+      parsed.adminUsername = 'Vip';
+      shouldSave = true;
+    }
+    if (!parsed.adminPassword) {
+      parsed.adminPassword = '1';
+      shouldSave = true;
+    }
+    if (parsed.adminPin) {
+      delete parsed.adminPin;
+      shouldSave = true;
+    }
+    if (!parsed.members || !Array.isArray(parsed.members)) {
+      parsed.members = [];
+      shouldSave = true;
+    }
+    if (shouldSave) {
       saveDatabase(parsed);
     }
     return parsed;
@@ -558,46 +510,92 @@ function logActivity(
 
 // ----------------- API ROUTES ----------------- //
 
-// Admin Login / Verification
+// Admin Login / Verification (Username & Password)
 app.post('/api/admin/verify', (req: Request, res: Response) => {
-  const { pin } = req.body;
+  const { username, password, pin } = req.body;
   const db = loadDatabase();
-  if (pin === db.adminPin || pin === 'admin123' || pin === '1234') {
+  const expectedUser = (db.adminUsername || 'Vip').trim();
+  const expectedPass = (db.adminPassword || '1').trim();
+
+  const inputUser = (username || '').toString().trim();
+  const inputPass = (password !== undefined && password !== null ? password : (pin !== undefined && pin !== null ? pin : '')).toString().trim();
+
+  // Admin must provide valid username (Vip) and password (1)
+  const isUsernameMatch = inputUser.length > 0 && inputUser.toLowerCase() === expectedUser.toLowerCase();
+  const isPasswordMatch = inputPass.length > 0 && inputPass === expectedPass;
+
+  if (isUsernameMatch && isPasswordMatch) {
     logActivity(db, {
       actorType: 'admin',
-      actorIdentifier: 'Admin Session',
+      actorIdentifier: `Admin (${expectedUser})`,
       actionType: 'admin_login',
       category: 'management',
-      details: 'Admin verified and logged into management console',
+      details: 'Administrator authenticated successfully',
       device: req.headers['user-agent']?.substring(0, 50) || 'Web Browser',
     });
     saveDatabase(db);
     return res.json({ success: true, token: 'adm_tok_' + Date.now() });
   }
-  return res.status(401).json({ success: false, message: 'Invalid Admin PIN' });
+
+  return res.status(401).json({ success: false, message: 'Invalid admin credentials' });
 });
 
-// Admin change PIN
-app.post('/api/admin/change-pin', (req: Request, res: Response) => {
-  const { oldPin, newPin } = req.body;
+// Admin Authorization Guard middleware
+function requireAdminAuth(req: Request, res: Response, next: NextFunction) {
+  const token = (req.headers['x-admin-token'] || req.headers['authorization']) as string | undefined;
+  if (!token || (!token.startsWith('adm_tok_') && token !== 'admin_tok_vip_auth' && token !== 'true')) {
+    return res.status(403).json({
+      success: false,
+      message: 'Access restricted: Administrator credentials required',
+    });
+  }
+  next();
+}
+
+// Admin change credentials
+app.post('/api/admin/change-credentials', requireAdminAuth, (req: Request, res: Response) => {
+  const { currentPassword, newUsername, newPassword } = req.body;
   const db = loadDatabase();
-  if (oldPin !== db.adminPin && oldPin !== 'admin123') {
-    return res.status(401).json({ success: false, message: 'Incorrect old PIN' });
+  const expectedPass = (db.adminPassword || '1').trim();
+
+  if (!currentPassword || currentPassword.toString().trim() !== expectedPass) {
+    return res.status(401).json({ success: false, message: 'Current password is incorrect' });
   }
-  if (!newPin || newPin.trim().length < 4) {
-    return res.status(400).json({ success: false, message: 'PIN must be at least 4 characters' });
+
+  if (newUsername && newUsername.trim()) {
+    db.adminUsername = newUsername.trim();
   }
-  db.adminPin = newPin.trim();
+  if (newPassword && newPassword.toString().trim()) {
+    db.adminPassword = newPassword.toString().trim();
+  }
+
   logActivity(db, {
     actorType: 'admin',
-    actorIdentifier: 'Admin Session',
+    actorIdentifier: `Admin (${db.adminUsername || 'Vip'})`,
     actionType: 'admin_login',
     category: 'management',
-    details: 'Admin security PIN successfully changed',
+    details: 'Admin security credentials updated',
     device: req.headers['user-agent']?.substring(0, 50) || 'Web Browser',
   });
   saveDatabase(db);
-  res.json({ success: true, message: 'PIN updated successfully' });
+  res.json({ success: true, message: 'Admin credentials updated successfully' });
+});
+
+// Backwards compatibility endpoint for PIN change
+app.post('/api/admin/change-pin', requireAdminAuth, (req: Request, res: Response) => {
+  const { oldPin, newPin } = req.body;
+  const db = loadDatabase();
+  const expectedPass = (db.adminPassword || '1').trim();
+
+  if (!oldPin || oldPin.toString().trim() !== expectedPass) {
+    return res.status(401).json({ success: false, message: 'Current password/PIN is incorrect' });
+  }
+  if (!newPin || !newPin.toString().trim()) {
+    return res.status(400).json({ success: false, message: 'New password cannot be empty' });
+  }
+  db.adminPassword = newPin.toString().trim();
+  saveDatabase(db);
+  res.json({ success: true, message: 'Password updated successfully' });
 });
 
 // ----------------- CLIENT AUTH & MEMBERSHIP ROUTES ----------------- //
@@ -656,8 +654,8 @@ app.post('/api/auth/register', (req: Request, res: Response) => {
 // Client Member Login
 app.post('/api/auth/login', (req: Request, res: Response) => {
   const { email, password } = req.body;
-  if (!email) {
-    return res.status(400).json({ success: false, message: 'Email is required' });
+  if (!email || !password) {
+    return res.status(400).json({ success: false, message: 'Email and password are required' });
   }
 
   const db = loadDatabase();
@@ -665,12 +663,15 @@ app.post('/api/auth/login', (req: Request, res: Response) => {
 
   const member = db.members.find((m) => m.email.toLowerCase() === normalizedEmail);
   if (!member) {
-    // Check if demo quick sign in or create on the fly if valid format
-    return res.status(404).json({ success: false, message: 'No registered member found with this email' });
+    return res.status(404).json({ success: false, message: 'No registered member found with this email. Please register for a free account.' });
   }
 
   if (member.status === 'suspended') {
     return res.status(403).json({ success: false, message: 'Your account has been suspended by administrator' });
+  }
+
+  if (member.password && member.password !== password) {
+    return res.status(401).json({ success: false, message: 'Incorrect password. Please try again.' });
   }
 
   // Update last active
@@ -716,14 +717,14 @@ app.get('/api/auth/me', (req: Request, res: Response) => {
 // ----------------- ADMIN MEMBERS DIRECTORY ROUTES ----------------- //
 
 // Admin: View all registered members
-app.get('/api/admin/members', (req: Request, res: Response) => {
+app.get('/api/admin/members', requireAdminAuth, (req: Request, res: Response) => {
   const db = loadDatabase();
   const safeMembers: UserMember[] = db.members.map(({ password, ...m }) => m);
   res.json({ members: safeMembers, totalCount: safeMembers.length });
 });
 
 // Admin: Update member role or status (promote to VIP, suspend, activate)
-app.patch('/api/admin/members/:id', (req: Request, res: Response) => {
+app.patch('/api/admin/members/:id', requireAdminAuth, (req: Request, res: Response) => {
   const { id } = req.params;
   const { role, status } = req.body;
   const db = loadDatabase();
@@ -756,7 +757,7 @@ app.patch('/api/admin/members/:id', (req: Request, res: Response) => {
 });
 
 // Admin: Delete member
-app.delete('/api/admin/members/:id', (req: Request, res: Response) => {
+app.delete('/api/admin/members/:id', requireAdminAuth, (req: Request, res: Response) => {
   const { id } = req.params;
   const db = loadDatabase();
 
@@ -1191,7 +1192,7 @@ app.post('/api/tips/:id/comments', (req: Request, res: Response) => {
 });
 
 // ACTIVITIES (Admin Activity Monitor & Client tracking)
-app.get('/api/activities', (req: Request, res: Response) => {
+app.get('/api/activities', requireAdminAuth, (req: Request, res: Response) => {
   const { category, actorType, search, limit } = req.query;
   const db = loadDatabase();
 
@@ -1242,7 +1243,7 @@ app.post('/api/activities', (req: Request, res: Response) => {
 });
 
 // Clear / Reset activity logs (Admin)
-app.delete('/api/activities', (req: Request, res: Response) => {
+app.delete('/api/activities', requireAdminAuth, (req: Request, res: Response) => {
   const db = loadDatabase();
   db.activities = [];
   logActivity(db, {

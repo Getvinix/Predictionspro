@@ -1,27 +1,37 @@
 import React, { useState } from 'react';
-import { Key, Shield, Check, AlertCircle } from 'lucide-react';
-import { changeAdminPin } from '../../utils/api.ts';
+import { Shield, Check, AlertCircle, User, Lock, KeyRound } from 'lucide-react';
+import { changeAdminCredentials } from '../../utils/api.ts';
 
 export const SecuritySettings: React.FC = () => {
-  const [oldPin, setOldPin] = useState('');
-  const [newPin, setNewPin] = useState('');
+  const [currentPassword, setCurrentPassword] = useState('');
+  const [newUsername, setNewUsername] = useState('');
+  const [newPassword, setNewPassword] = useState('');
   const [msg, setMsg] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
   const [loading, setLoading] = useState(false);
 
-  const handleChangePin = async (e: React.FormEvent) => {
+  const handleUpdateCredentials = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!oldPin || !newPin) return;
+    if (!currentPassword) return;
+    if (!newUsername.trim() && !newPassword.trim()) {
+      setMsg({ type: 'error', text: 'Enter a new username or new password to update.' });
+      return;
+    }
     setLoading(true);
     setMsg(null);
 
     try {
-      const res = await changeAdminPin(oldPin, newPin);
+      const res = await changeAdminCredentials(
+        currentPassword.trim(),
+        newUsername.trim() || undefined,
+        newPassword.trim() || undefined
+      );
       if (res.success) {
-        setMsg({ type: 'success', text: 'Admin PIN successfully updated!' });
-        setOldPin('');
-        setNewPin('');
+        setMsg({ type: 'success', text: 'Admin security credentials successfully updated!' });
+        setCurrentPassword('');
+        setNewUsername('');
+        setNewPassword('');
       } else {
-        setMsg({ type: 'error', text: res.message || 'Failed to change PIN.' });
+        setMsg({ type: 'error', text: res.message || 'Failed to update credentials.' });
       }
     } catch {
       setMsg({ type: 'error', text: 'Error connecting to server.' });
@@ -32,39 +42,68 @@ export const SecuritySettings: React.FC = () => {
 
   return (
     <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 sm:p-6 shadow-xl max-w-xl">
-      <div className="flex items-center gap-3 mb-4">
+      <div className="flex items-center gap-3 mb-5">
         <div className="w-10 h-10 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center">
-          <Key className="w-5 h-5" />
+          <Shield className="w-5 h-5" />
         </div>
         <div>
-          <h3 className="text-base font-bold text-white">Security & Admin PIN Settings</h3>
-          <p className="text-xs text-slate-400">Update the access PIN required to unlock this Admin Hub</p>
+          <h3 className="text-base font-bold text-white">Administrator Security Credentials</h3>
+          <p className="text-xs text-slate-400">
+            Secure administrative login credentials. Never shared or visible to public visitors.
+          </p>
         </div>
       </div>
 
-      <form onSubmit={handleChangePin} className="space-y-4">
+      <form onSubmit={handleUpdateCredentials} className="space-y-4">
         <div>
-          <label className="text-xs font-semibold text-slate-300 block mb-1">Current PIN</label>
-          <input
-            type="password"
-            placeholder="Enter current PIN"
-            value={oldPin}
-            onChange={(e) => setOldPin(e.target.value)}
-            required
-            className="w-full bg-slate-950 border border-slate-750 text-xs text-white rounded-xl px-3.5 py-2 font-mono"
-          />
+          <label className="text-xs font-semibold text-slate-300 block mb-1">
+            Current Password <span className="text-rose-400">*</span>
+          </label>
+          <div className="relative">
+            <input
+              type="password"
+              placeholder="Enter current password to verify identity"
+              value={currentPassword}
+              onChange={(e) => setCurrentPassword(e.target.value)}
+              required
+              className="w-full bg-slate-950 border border-slate-750 text-xs text-white rounded-xl pl-9 pr-3.5 py-2.5 font-mono focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            />
+            <KeyRound className="w-4 h-4 text-slate-500 absolute left-3 top-3" />
+          </div>
         </div>
 
-        <div>
-          <label className="text-xs font-semibold text-slate-300 block mb-1">New Security PIN</label>
-          <input
-            type="password"
-            placeholder="Enter new PIN (min 4 characters)"
-            value={newPin}
-            onChange={(e) => setNewPin(e.target.value)}
-            required
-            className="w-full bg-slate-950 border border-slate-750 text-xs text-white rounded-xl px-3.5 py-2 font-mono"
-          />
+        <div className="pt-2 border-t border-slate-800/80 space-y-4">
+          <div>
+            <label className="text-xs font-semibold text-slate-300 block mb-1">
+              New Admin Username (Leave blank to keep unchanged)
+            </label>
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="New username"
+                value={newUsername}
+                onChange={(e) => setNewUsername(e.target.value)}
+                className="w-full bg-slate-950 border border-slate-750 text-xs text-white rounded-xl pl-9 pr-3.5 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              />
+              <User className="w-4 h-4 text-slate-500 absolute left-3 top-3" />
+            </div>
+          </div>
+
+          <div>
+            <label className="text-xs font-semibold text-slate-300 block mb-1">
+              New Admin Password (Leave blank to keep unchanged)
+            </label>
+            <div className="relative">
+              <input
+                type="password"
+                placeholder="New secure password"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+                className="w-full bg-slate-950 border border-slate-750 text-xs text-white rounded-xl pl-9 pr-3.5 py-2.5 font-mono focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              />
+              <Lock className="w-4 h-4 text-slate-500 absolute left-3 top-3" />
+            </div>
+          </div>
         </div>
 
         {msg && (
@@ -82,10 +121,11 @@ export const SecuritySettings: React.FC = () => {
 
         <button
           type="submit"
-          disabled={loading || !oldPin || !newPin}
-          className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white font-bold rounded-xl text-xs sm:text-sm shadow-md transition"
+          disabled={loading || !currentPassword || (!newUsername.trim() && !newPassword.trim())}
+          className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white font-bold rounded-xl text-xs sm:text-sm shadow-md transition flex items-center gap-2"
         >
-          {loading ? 'Saving...' : 'Update Admin PIN'}
+          <Shield className="w-4 h-4" />
+          <span>{loading ? 'Updating Credentials...' : 'Save Updated Credentials'}</span>
         </button>
       </form>
     </div>

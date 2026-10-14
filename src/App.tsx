@@ -83,6 +83,13 @@ export default function App() {
     loadData();
   }, []);
 
+  // Strict route protection: never allow unauthenticated users on admin tab
+  useEffect(() => {
+    if (currentTab === 'admin' && !isAdmin) {
+      setCurrentTab('tips');
+    }
+  }, [currentTab, isAdmin]);
+
   const handleSelectDay = (dayNum: number) => {
     setSelectedDayNumber(dayNum);
     const tip = tips.find((t) => t.dayNumber === dayNum);
@@ -210,8 +217,8 @@ export default function App() {
               />
             )}
 
-            {/* ADMIN PORTAL: ACTIVITY MONITOR & MANAGEMENT */}
-            {currentTab === 'admin' && (
+            {/* ADMIN PORTAL: Strictly guarded for authenticated Admin only */}
+            {currentTab === 'admin' && isAdmin && (
               <AdminDashboard
                 tips={tips}
                 announcements={announcements}
@@ -260,10 +267,11 @@ export default function App() {
                 if (isAdmin) setCurrentTab('admin');
                 else setIsAdminLoginOpen(true);
               }}
-              className="text-slate-400 hover:text-emerald-400 transition flex items-center gap-1 font-semibold"
+              className="text-slate-500 hover:text-slate-300 transition flex items-center gap-1 font-normal text-[11px]"
+              title="Admin Portal"
             >
-              <Shield className="w-3.5 h-3.5" />
-              <span>{isAdmin ? 'Admin Console' : 'Admin Login'}</span>
+              <Lock className="w-3.5 h-3.5" />
+              <span>{isAdmin ? 'Admin Portal' : 'Admin Login'}</span>
             </button>
           </div>
         </div>
