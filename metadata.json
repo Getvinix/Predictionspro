@@ -1,0 +1,6 @@
+{
+  "name": "RolloverPro - Daily Sports Rollover Tips & Admin Hub",
+  "description": "Professional daily sports betting rollover challenge management app with interactive user tips portal, booking codes, compound bankroll calculator, and comprehensive admin activity monitoring dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

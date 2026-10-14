@@ -1,0 +1,664 @@
+{
+  "adminPin": "admin123",
+  "activeChallenge": {
+    "id": "chal-10day-oct",
+    "name": "10-Day Safe Rollover Challenge ($20 -> $500)",
+    "status": "ACTIVE",
+    "currentDay": 4,
+    "totalDays": 10,
+    "startingStake": 20,
+    "currentBankroll": 51.4,
+    "targetBankroll": 500,
+    "currentStreak": 3
+  },
+  "tips": [
+    {
+      "id": "tip-day-1",
+      "challengeId": "chal-10day-oct",
+      "challengeName": "10-Day Safe Rollover Challenge ($20 -> $500)",
+      "dayNumber": 1,
+      "totalDays": 10,
+      "date": "2026-10-11",
+      "status": "WON",
+      "startingStake": 20,
+      "currentStake": 20,
+      "targetPayout": 27,
+      "totalOdds": 1.35,
+      "confidence": 96,
+      "riskLevel": "Safe",
+      "adminNote": "Clean kickoff to the 10-day sprint. Controlled risk with European home favorites.",
+      "matches": [
+        {
+          "id": "m1-1",
+          "sport": "Football / Soccer",
+          "league": "Premier League",
+          "homeTeam": "Manchester City",
+          "awayTeam": "Fulham",
+          "kickoffTime": "15:00 GMT",
+          "prediction": "Man City Win & Over 1.5 Goals",
+          "marketType": "1 & Over 1.5",
+          "odds": 1.22,
+          "reasoning": "City averaging 2.8 goals at home; Haaland fit and starting.",
+          "matchStatus": "WON",
+          "score": "3 - 1"
+        },
+        {
+          "id": "m1-2",
+          "sport": "Football / Soccer",
+          "league": "La Liga",
+          "homeTeam": "Barcelona",
+          "awayTeam": "Getafe",
+          "kickoffTime": "20:00 GMT",
+          "prediction": "Barcelona Win or Draw (1X)",
+          "marketType": "Double Chance 1X",
+          "odds": 1.11,
+          "reasoning": "Barcelona unbeaten at home in last 14 fixtures.",
+          "matchStatus": "WON",
+          "score": "2 - 0"
+        }
+      ],
+      "bookingCodes": [
+        {
+          "bookmaker": "SportyBet",
+          "code": "BC7719A",
+          "region": "Global"
+        },
+        {
+          "bookmaker": "1xBet",
+          "code": "XB8821Q",
+          "region": "Global"
+        },
+        {
+          "bookmaker": "Bet9ja",
+          "code": "B9J-3341",
+          "region": "Nigeria"
+        },
+        {
+          "bookmaker": "Betway",
+          "code": "BW-9012",
+          "region": "Kenya/SA"
+        }
+      ],
+      "reactions": {
+        "fire": 42,
+        "target": 35,
+        "money": 28,
+        "cold": 1
+      },
+      "viewsCount": 384,
+      "copiesCount": 215,
+      "followedCount": 168,
+      "createdAt": "2026-10-11T08:00:00Z",
+      "settledAt": "2026-10-11T22:30:00Z"
+    },
+    {
+      "id": "tip-day-2",
+      "challengeId": "chal-10day-oct",
+      "challengeName": "10-Day Safe Rollover Challenge ($20 -> $500)",
+      "dayNumber": 2,
+      "totalDays": 10,
+      "date": "2026-10-12",
+      "status": "WON",
+      "startingStake": 20,
+      "currentStake": 27,
+      "targetPayout": 37.8,
+      "totalOdds": 1.4,
+      "confidence": 94,
+      "riskLevel": "Safe",
+      "adminNote": "Staking total profit from Day 1 ($27.00). Target: $37.80. Discipline is key!",
+      "matches": [
+        {
+          "id": "m2-1",
+          "sport": "Football / Soccer",
+          "league": "Serie A",
+          "homeTeam": "Inter Milan",
+          "awayTeam": "Monza",
+          "kickoffTime": "19:45 GMT",
+          "prediction": "Inter Milan Draw No Bet (1 DNB)",
+          "marketType": "Draw No Bet",
+          "odds": 1.18,
+          "reasoning": "Inter solid defensive record, 0 losses in last 8 league outings.",
+          "matchStatus": "WON",
+          "score": "2 - 1"
+        },
+        {
+          "id": "m2-2",
+          "sport": "Football / Soccer",
+          "league": "Bundesliga",
+          "homeTeam": "Bayern Munich",
+          "awayTeam": "Augsburg",
+          "kickoffTime": "17:30 GMT",
+          "prediction": "Over 2.5 Total Match Goals",
+          "marketType": "Over 2.5 Goals",
+          "odds": 1.19,
+          "reasoning": "H2H matches average 4.2 goals over past 5 encounters.",
+          "matchStatus": "WON",
+          "score": "4 - 1"
+        }
+      ],
+      "bookingCodes": [
+        {
+          "bookmaker": "SportyBet",
+          "code": "SD8812K",
+          "region": "Global"
+        },
+        {
+          "bookmaker": "1xBet",
+          "code": "1X-7734F",
+          "region": "Global"
+        },
+        {
+          "bookmaker": "Bet9ja",
+          "code": "B9J-5582",
+          "region": "Nigeria"
+        },
+        {
+          "bookmaker": "Betway",
+          "code": "BW-2219",
+          "region": "Kenya/SA"
+        }
+      ],
+      "reactions": {
+        "fire": 67,
+        "target": 51,
+        "money": 49,
+        "cold": 0
+      },
+      "viewsCount": 512,
+      "copiesCount": 310,
+      "followedCount": 245,
+      "createdAt": "2026-10-12T08:30:00Z",
+      "settledAt": "2026-10-12T21:45:00Z"
+    },
+    {
+      "id": "tip-day-3",
+      "challengeId": "chal-10day-oct",
+      "challengeName": "10-Day Safe Rollover Challenge ($20 -> $500)",
+      "dayNumber": 3,
+      "totalDays": 10,
+      "date": "2026-10-13",
+      "status": "WON",
+      "startingStake": 20,
+      "currentStake": 37.8,
+      "targetPayout": 51.4,
+      "totalOdds": 1.36,
+      "confidence": 93,
+      "riskLevel": "Safe",
+      "adminNote": "Day 3 cleared comfortably! Bankroll more than doubled from initial $20 to $51.40.",
+      "matches": [
+        {
+          "id": "m3-1",
+          "sport": "Football / Soccer",
+          "league": "UEFA Champions League",
+          "homeTeam": "Real Madrid",
+          "awayTeam": "Shakhtar Donetsk",
+          "kickoffTime": "20:00 GMT",
+          "prediction": "Real Madrid Win & Over 1.5 Goals",
+          "marketType": "1 & Over 1.5",
+          "odds": 1.25,
+          "reasoning": "Madrid formidable in European home ties with frontline at peak sharpness.",
+          "matchStatus": "WON",
+          "score": "3 - 0"
+        },
+        {
+          "id": "m3-2",
+          "sport": "Football / Soccer",
+          "league": "UEFA Champions League",
+          "homeTeam": "Arsenal",
+          "awayTeam": "PSV Eindhoven",
+          "kickoffTime": "20:00 GMT",
+          "prediction": "Arsenal Win or Draw (1X)",
+          "marketType": "Double Chance 1X",
+          "odds": 1.09,
+          "reasoning": "Arsenal undefeated at Emirates in UCL group stages for 2 seasons.",
+          "matchStatus": "WON",
+          "score": "2 - 1"
+        }
+      ],
+      "bookingCodes": [
+        {
+          "bookmaker": "SportyBet",
+          "code": "SP-9934B",
+          "region": "Global"
+        },
+        {
+          "bookmaker": "1xBet",
+          "code": "1X-6611G",
+          "region": "Global"
+        },
+        {
+          "bookmaker": "Bet9ja",
+          "code": "B9J-7729",
+          "region": "Nigeria"
+        },
+        {
+          "bookmaker": "Betway",
+          "code": "BW-3381",
+          "region": "Kenya/SA"
+        }
+      ],
+      "reactions": {
+        "fire": 89,
+        "target": 73,
+        "money": 81,
+        "cold": 2
+      },
+      "viewsCount": 780,
+      "copiesCount": 489,
+      "followedCount": 390,
+      "createdAt": "2026-10-13T09:00:00Z",
+      "settledAt": "2026-10-13T22:00:00Z"
+    },
+    {
+      "id": "tip-day-4",
+      "challengeId": "chal-10day-oct",
+      "challengeName": "10-Day Safe Rollover Challenge ($20 -> $500)",
+      "dayNumber": 4,
+      "totalDays": 10,
+      "date": "2026-10-14",
+      "status": "PENDING",
+      "startingStake": 20,
+      "currentStake": 51.4,
+      "targetPayout": 70.42,
+      "totalOdds": 1.37,
+      "confidence": 95,
+      "riskLevel": "Safe",
+      "adminNote": "TODAYS OFFICIAL SLIP! Day 4: Full stake $51.40 into total odds 1.37. Target Return: $70.42. Copy booking code below and lock in early before odds drop!",
+      "matches": [
+        {
+          "id": "m4-1",
+          "sport": "Football / Soccer",
+          "league": "UEFA Champions League",
+          "homeTeam": "Liverpool",
+          "awayTeam": "Bologna",
+          "kickoffTime": "20:00 GMT",
+          "prediction": "Liverpool Win & Over 1.5 Goals",
+          "marketType": "1 & Over 1.5",
+          "odds": 1.22,
+          "reasoning": "Anfield European nights carry massive momentum. Bologna conceded in each of their last 6 away matches.",
+          "matchStatus": "PENDING"
+        },
+        {
+          "id": "m4-2",
+          "sport": "Football / Soccer",
+          "league": "UEFA Champions League",
+          "homeTeam": "Aston Villa",
+          "awayTeam": "Bayern Munich",
+          "kickoffTime": "20:00 GMT",
+          "prediction": "Over 1.5 Total Match Goals",
+          "marketType": "Over 1.5 Goals",
+          "odds": 1.12,
+          "reasoning": "Both teams play high-tempo transitional football with prolific attacking units.",
+          "matchStatus": "PENDING"
+        }
+      ],
+      "bookingCodes": [
+        {
+          "bookmaker": "SportyBet",
+          "code": "8XF2A9",
+          "region": "Global / Africa"
+        },
+        {
+          "bookmaker": "1xBet",
+          "code": "ROLL-10D4",
+          "region": "Global / LatAm"
+        },
+        {
+          "bookmaker": "Bet9ja",
+          "code": "B9J-99042",
+          "region": "Nigeria"
+        },
+        {
+          "bookmaker": "Betway",
+          "code": "BW-77301",
+          "region": "UK / Europe / Kenya"
+        },
+        {
+          "bookmaker": "WilliamHill",
+          "code": "WH-5510",
+          "region": "UK"
+        }
+      ],
+      "reactions": {
+        "fire": 114,
+        "target": 98,
+        "money": 102,
+        "cold": 1
+      },
+      "viewsCount": 1045,
+      "copiesCount": 685,
+      "followedCount": 520,
+      "createdAt": "2026-10-14T06:30:00Z",
+      "settledAt": null
+    }
+  ],
+  "activities": [
+    {
+      "id": "act-1791966384647-53tvc",
+      "timestamp": "2026-10-14T08:26:24.647Z",
+      "actorType": "user",
+      "actorIdentifier": "Vincent Kip (vinytechkip@gmail.com)",
+      "actionType": "user_login",
+      "category": "engagement",
+      "details": "Member logged in: Vincent Kip (Verified)",
+      "metadata": {
+        "memberId": "usr-1",
+        "email": "vinytechkip@gmail.com"
+      },
+      "device": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537"
+    },
+    {
+      "id": "act-1791966312148-71ldn",
+      "timestamp": "2026-10-14T08:25:12.148Z",
+      "actorType": "user",
+      "actorIdentifier": "Vincent Kip (vinytechkip@gmail.com)",
+      "actionType": "user_login",
+      "category": "engagement",
+      "details": "Member logged in: Vincent Kip (Verified)",
+      "metadata": {
+        "memberId": "usr-1",
+        "email": "vinytechkip@gmail.com"
+      },
+      "device": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537"
+    },
+    {
+      "id": "act-1791966303126-9lhbo",
+      "timestamp": "2026-10-14T08:25:03.126Z",
+      "actorType": "user",
+      "actorIdentifier": "Punter-4553 (Madrid)",
+      "actionType": "tip_viewed",
+      "category": "engagement",
+      "details": "Viewed Day 4 Rollover Slip details and match predictions",
+      "metadata": {
+        "tipId": "tip-day-4",
+        "dayNumber": 4
+      },
+      "device": "Mobile / Chrome"
+    },
+    {
+      "id": "act-1791966101250-qzfnz",
+      "timestamp": "2026-10-14T08:21:41.250Z",
+      "actorType": "user",
+      "actorIdentifier": "Vincent Kip (vinytechkip@gmail.com)",
+      "actionType": "user_login",
+      "category": "engagement",
+      "details": "Member logged in: Vincent Kip (Verified)",
+      "metadata": {
+        "memberId": "usr-1",
+        "email": "vinytechkip@gmail.com"
+      },
+      "device": "curl/7.88.1"
+    },
+    {
+      "id": "act-1791965815282-mk1ve",
+      "timestamp": "2026-10-14T08:16:55.282Z",
+      "actorType": "user",
+      "actorIdentifier": "Punter-4553 (Madrid)",
+      "actionType": "tip_viewed",
+      "category": "engagement",
+      "details": "Viewed Day 4 Rollover Slip details and match predictions",
+      "metadata": {
+        "tipId": "tip-day-4",
+        "dayNumber": 4
+      },
+      "device": "Mobile / Chrome"
+    },
+    {
+      "id": "act-1791965452335-dri2x",
+      "timestamp": "2026-10-14T08:10:52.335Z",
+      "actorType": "admin",
+      "actorIdentifier": "Admin Session",
+      "actionType": "admin_login",
+      "category": "management",
+      "details": "Admin verified and logged into management console",
+      "device": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537"
+    },
+    {
+      "id": "act-1791965411514-44ajg",
+      "timestamp": "2026-10-14T08:10:11.514Z",
+      "actorType": "user",
+      "actorIdentifier": "Punter-4553 (Madrid)",
+      "actionType": "tip_viewed",
+      "category": "engagement",
+      "details": "Viewed Day 4 Rollover Slip details and match predictions",
+      "metadata": {
+        "tipId": "tip-day-4",
+        "dayNumber": 4
+      },
+      "device": "Mobile / Chrome"
+    },
+    {
+      "id": "act-1",
+      "timestamp": "2026-10-14T07:53:46.019Z",
+      "actorType": "user",
+      "actorIdentifier": "User-6612 (London, UK)",
+      "actionType": "booking_code_copied",
+      "category": "conversion",
+      "details": "Copied SportyBet code '8XF2A9' for Day 4 Rollover Slip",
+      "metadata": {
+        "tipId": "tip-day-4",
+        "bookmaker": "SportyBet",
+        "code": "8XF2A9",
+        "dayNumber": 4
+      },
+      "device": "Mobile / Safari iOS"
+    },
+    {
+      "id": "act-2",
+      "timestamp": "2026-10-14T07:48:46.019Z",
+      "actorType": "user",
+      "actorIdentifier": "User-9941 (Lagos, NG)",
+      "actionType": "tip_followed",
+      "category": "engagement",
+      "details": "Marked Day 4 tip as 'Followed with $51.40 stake'",
+      "metadata": {
+        "tipId": "tip-day-4",
+        "stake": 51.4
+      },
+      "device": "Mobile / Chrome Android"
+    },
+    {
+      "id": "act-3",
+      "timestamp": "2026-10-14T07:42:46.019Z",
+      "actorType": "user",
+      "actorIdentifier": "User-3308 (Nairobi, KE)",
+      "actionType": "booking_code_copied",
+      "category": "conversion",
+      "details": "Copied Betway code 'BW-77301' for Day 4 Rollover Slip",
+      "metadata": {
+        "tipId": "tip-day-4",
+        "bookmaker": "Betway",
+        "code": "BW-77301",
+        "dayNumber": 4
+      },
+      "device": "Desktop / Chrome Windows"
+    },
+    {
+      "id": "act-4",
+      "timestamp": "2026-10-14T07:34:46.019Z",
+      "actorType": "user",
+      "actorIdentifier": "User-1192 (Berlin, DE)",
+      "actionType": "calculator_simulated",
+      "category": "engagement",
+      "details": "Simulated 10-Day Rollover compound: $50 start -> $1,280 target at 1.38 odds",
+      "metadata": {
+        "startingStake": 50,
+        "days": 10,
+        "odds": 1.38,
+        "target": 1280
+      },
+      "device": "Desktop / Firefox"
+    },
+    {
+      "id": "act-5",
+      "timestamp": "2026-10-14T07:21:46.019Z",
+      "actorType": "admin",
+      "actorIdentifier": "Admin Master",
+      "actionType": "admin_tip_created",
+      "category": "management",
+      "details": "Uploaded Day 4 Rollover Slip (Liverpool vs Bologna, Villa vs Bayern) @ 1.37 odds",
+      "metadata": {
+        "tipId": "tip-day-4",
+        "odds": 1.37,
+        "dayNumber": 4
+      },
+      "device": "Admin Console / Chrome"
+    },
+    {
+      "id": "act-6",
+      "timestamp": "2026-10-14T07:04:46.019Z",
+      "actorType": "admin",
+      "actorIdentifier": "Admin Master",
+      "actionType": "admin_status_changed",
+      "category": "management",
+      "details": "Marked Day 3 Rollover Tip as 'WON' (Bankroll grew to $51.40)",
+      "metadata": {
+        "tipId": "tip-day-3",
+        "status": "WON",
+        "bankroll": 51.4
+      },
+      "device": "Admin Console / Chrome"
+    },
+    {
+      "id": "act-7",
+      "timestamp": "2026-10-14T06:51:46.019Z",
+      "actorType": "user",
+      "actorIdentifier": "User-8823 (Accra, GH)",
+      "actionType": "reaction_added",
+      "category": "community",
+      "details": "Reacted 🔥 Fire to Day 4 Rollover Slip",
+      "metadata": {
+        "tipId": "tip-day-4",
+        "reaction": "fire"
+      },
+      "device": "Mobile / Chrome Android"
+    },
+    {
+      "id": "act-8",
+      "timestamp": "2026-10-14T06:38:46.019Z",
+      "actorType": "user",
+      "actorIdentifier": "User-4402 (Toronto, CA)",
+      "actionType": "slip_shared",
+      "category": "conversion",
+      "details": "Generated share card and copied link for Day 4 Rollover Slip",
+      "metadata": {
+        "tipId": "tip-day-4"
+      },
+      "device": "Desktop / Chrome macOS"
+    }
+  ],
+  "comments": [
+    {
+      "id": "com-1",
+      "tipId": "tip-day-4",
+      "authorName": "Alex_Punter",
+      "authorBadge": "Verified Bettor",
+      "text": "Locked in the SportyBet slip early. Liverpool at Anfield is as solid as it gets. Let’s make it 4 in a row!",
+      "timestamp": "2026-10-14T07:31:46.019Z",
+      "likes": 18
+    },
+    {
+      "id": "com-2",
+      "tipId": "tip-day-4",
+      "authorName": "KelvinTips",
+      "authorBadge": "Pro Bettor",
+      "text": "Good catch taking Over 1.5 in the Villa vs Bayern game instead of straight win. Bayern matches are goalfests.",
+      "timestamp": "2026-10-14T07:41:46.019Z",
+      "likes": 12
+    },
+    {
+      "id": "com-3",
+      "tipId": "tip-day-4",
+      "authorName": "Samuel_O",
+      "authorBadge": "Member",
+      "text": "Following since Day 1 with $20, already at $51. Discipline is the only way in sports betting.",
+      "timestamp": "2026-10-14T07:51:46.019Z",
+      "likes": 9
+    }
+  ],
+  "announcements": [
+    {
+      "id": "ann-1",
+      "title": "🚨 Day 4 Rollover Slip is Live!",
+      "message": "Stick strictly to compounding rule. Do not add outside selections. Kickoff is at 20:00 GMT.",
+      "type": "live",
+      "active": true,
+      "createdAt": "2026-10-14T06:45:00Z"
+    },
+    {
+      "id": "ann-2",
+      "title": "✅ Day 3 Target Achieved!",
+      "message": "Real Madrid and Arsenal both landed smoothly. Initial $20 stake has compound-grown to $51.40 (+157% net gain).",
+      "type": "success",
+      "active": true,
+      "createdAt": "2026-10-13T22:15:00Z"
+    }
+  ],
+  "members": [
+    {
+      "id": "usr-1",
+      "name": "Vincent Kip",
+      "email": "vinytechkip@gmail.com",
+      "phone": "+254 712 345678",
+      "role": "verified",
+      "status": "active",
+      "joinedAt": "2026-10-01T10:00:00Z",
+      "lastActiveAt": "2026-10-14T08:26:24.646Z",
+      "codesCopiedCount": 28,
+      "tipsFollowedCount": 22,
+      "password": "password123"
+    },
+    {
+      "id": "usr-2",
+      "name": "Alex Thompson",
+      "email": "alex.punter@gmail.com",
+      "phone": "+44 7911 123456",
+      "role": "verified",
+      "status": "active",
+      "joinedAt": "2026-10-04T14:20:00Z",
+      "lastActiveAt": "2026-10-14T08:03:37.310Z",
+      "codesCopiedCount": 19,
+      "tipsFollowedCount": 15,
+      "password": "password123"
+    },
+    {
+      "id": "usr-3",
+      "name": "Kelvin Mwangi",
+      "email": "kelvin.tips@yahoo.com",
+      "phone": "+254 722 987654",
+      "role": "veteran",
+      "status": "active",
+      "joinedAt": "2026-10-08T09:15:00Z",
+      "lastActiveAt": "2026-10-14T07:46:37.310Z",
+      "codesCopiedCount": 14,
+      "tipsFollowedCount": 12,
+      "password": "password123"
+    },
+    {
+      "id": "usr-4",
+      "name": "Samuel Osei",
+      "email": "samuel.o@gmail.com",
+      "phone": "+233 24 555 1234",
+      "role": "member",
+      "status": "active",
+      "joinedAt": "2026-10-10T11:00:00Z",
+      "lastActiveAt": "2026-10-14T06:56:37.310Z",
+      "codesCopiedCount": 8,
+      "tipsFollowedCount": 6,
+      "password": "password123"
+    },
+    {
+      "id": "usr-5",
+      "name": "David Becker",
+      "email": "david.bets@outlook.de",
+      "phone": "+49 170 5554321",
+      "role": "member",
+      "status": "active",
+      "joinedAt": "2026-10-12T16:45:00Z",
+      "lastActiveAt": "2026-10-14T06:01:37.310Z",
+      "codesCopiedCount": 5,
+      "tipsFollowedCount": 4,
+      "password": "password123"
+    }
+  ]
+}
